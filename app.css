@@ -1,0 +1,18 @@
+.item {
+  padding: 2rem;
+  border: 1px solid #000;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.item img {
+  width: 20rem;
+}
+
+button {
+  width: 50%;
+  height: 2rem;
+  background: rgb(19, 94, 19);
+  color: #fff;
+  cursor: pointer;
+}

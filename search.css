@@ -1,0 +1,9 @@
+#search {
+  width: 50%;
+}
+
+#results {
+  display: none;
+  border: 1px solid rgb(155, 155, 155);
+  background: rgb(0, 0, 0, 0.2);
+}

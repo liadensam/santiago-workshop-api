@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <a href="https://google.com" onclick="return false">Take me to Goggle</a> -->
+
+    <form
+      action="https://ecuaguia.com/iceland/api-log-in.php"
+      onsubmit="login(); return false"
+    >
+      <input name="user_name" type="text" placeholder="name" />
+      <input name="password" type="password" placeholder="password" />
+      <button>Log In</button>
+    </form>
+
+    <script>
+      async function login() {
+        //get the form
+        const form = event.target;
+        //console.log(form);
+
+        //connect to the API
+        //you are in your local machine pointing to my server that is in another machine. corse error
+        const conn = await fetch(
+          "https://ecuaguia.com/iceland/api-log-in.php",
+          {
+            method: "POST",
+
+            //send data to the API (user_name, password)
+            body: new FormData(form),
+          }
+        );
+
+        //get the response back
+        //const response = await conn.text();
+        const response = await conn.json();
+        console.log(response);
+
+        //check the response (ok or error)
+
+        if (!conn.ok) {
+          //if the response is wrong, then show the user message
+          alert("sorry, you are not logged in.");
+          return;
+        }
+        //if the response is ok, then show sth nice to the user
+        alert("Great!");
+      }
+    </script>
+  </body>
+</html>
